@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Минималистичный сайт</title>
+    <title >Zelc_YUI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
+            display: flex;
+            text-align: center;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             color: #333;
             line-height: 1.6;
+            flex-direction: column;
+            min-height: 100vh; 
         }
         header, footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 1rem 0;
+            z-index: 2;  
         }
         main {
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            z-index: 2;  
         }
         h1 {
             margin: 0;
@@ -30,26 +38,119 @@
         p {
             margin: 0 0 20px;
         }
+        img {
+            display: inline-block;
+            max-width: 100%; 
+            height: auto; 
+        }
+        .small {
+      
+            width: 45%; 
+        }
+        .logo {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .content {
+            flex: 1; 
+            padding: 20px; 
+            position: relative;
+        }
+        .foo {
+            margin-top: 15px;
+        }
+
+        .stripe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 320px; 
+            background-size: cover; 
+            background-repeat: no-repeat;
+            z-index: 1;  
+        }
+
+        .left-stripe {
+            left: 0;
+            background-image: url('images/left_stripe.jpg'); 
+        }
+
+        .right-stripe {
+            right: 0; 
+            background-image: url('images/right_stripe.jpg'); 
+        }
+
+        .Welcome {
+            font-size: 22px; 
+            font-family: 'Comfortaa', sans-serif;
+            margin-top: 6px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .Fon {
+            z-index: 0;  
+        }
+        .Cyan_ {
+            color: #08e8de;
+        }
+        .Head {
+            font-size: 28px; 
+            font-family: 'Rubik', sans-serif; 
+            letter-spacing: 4px;
+        }
+        form {
+            position: relative;
+            width: 15%;
+            background-color: white; /* Цвет фона формы */
+            padding: 20px; /* Отступы внутри формы */
+            border-radius: 10px; /* Округление углов формы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+            margin: 0 auto;
+        }
+
+        input[type="text"], 
+        input[type="password"] {
+            width: 80%; /* Ширина полей ввода */
+            padding: 10px; /* Отступы внутри полей */
+            border: 1px solid #ccc; /* Цвет границы */
+            border-radius: 20px; /* Округление углов полей ввода */
+            margin-bottom: 5px; /* Отступ между полями */
+            box-sizing: border-box; /* Учет отступов в ширине */
+        }
+
+        input[type="image"] {
+            border: none; /* Убирает стандартные границы для изображения */
+            border-radius: 20px; /* Округление углов для кнопки */
+            cursor: pointer; /* Указывает, что это кнопка */
+        }
     </style>
-	  <script src="Src.js" defer></script
+	  <script src="Src.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Мой минималистичный сайт</h1>
+        <h1 class="Head"><span class="Cyan_">Zelc_YUI</span></h1>
     </header>
-    <main>
-        <p>Добро пожаловать на мой сайт! Здесь ничего лишнего, только самое необходимое.</p>
-        <p>Это пример простого и чистого дизайна.</p>
-		    <button id="myButton">Нажми меня</button>
+    <div class="content">
+        <div class="stripe left-stripe"></div>
+        <div class="stripe right-stripe"></div>
+        <pre class="Welcome" align="center">Welcome to my website! Enter the password to access the database.</pre>
+        <hr class="Fon" align="center" color="08e8de" noshade width="40%">
+        <img class="logo" src="images/Logo_YUI.jpg" alt="html logo" align="center" width="300" height="300">
+        <form method="post" action="" align="center">
+            <p><input type="text" name="userLogin" placeholder="Your login: " size="10" maxlength="30"/></p>
+            <p><input type="password" name="userPassword" placeholder="Your password: " size="10" maxlength="30" /></p>
+            <p><input id="myButton" type="image" class="small" src="images/entrance.png" name="submit" /></p>
+        </form>
 
     <script>
         document.getElementById('myButton').addEventListener('click', function() {
-            myFunction(); // Вызов функции из Src.js
+            myFunction(); 
         });
     </script>
-    </main>
+    </div>
     <footer>
-        <p>Мой сайт 2025</p>
+        <p class="foo">Web 2025</p>
     </footer>
 </body>
 </html>
