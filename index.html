@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >Zelc_YUI</title>
+    <title>Zelc_YUI</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -64,7 +64,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 320px; 
+            width: 20%;
             background-size: cover; 
             background-repeat: no-repeat;
             z-index: 1;  
@@ -95,12 +95,13 @@
             color: #08e8de;
         }
         .Head {
+            position: relative;
             font-size: 28px; 
             font-family: 'Rubik', sans-serif; 
             letter-spacing: 4px;
+            margin-left:5%;
         }
         form {
-            position: relative;
             width: 15%;
             background-color: white; /* Цвет фона формы */
             padding: 20px; /* Отступы внутри формы */
@@ -129,7 +130,7 @@
 </head>
 <body>
     <header>
-        <h1 class="Head"><span class="Cyan_">Zelc_YUI</span></h1>
+        <h1 class="Head" align="left";><span class="Cyan_">Zelc_YUI</span></h1>
     </header>
     <div class="content">
         <div class="stripe left-stripe"></div>
@@ -137,17 +138,27 @@
         <pre class="Welcome" align="center">Welcome to my website! Enter the password to access the database.</pre>
         <hr class="Fon" align="center" color="08e8de" noshade width="40%">
         <img class="logo" src="images/Logo_YUI.jpg" alt="html logo" align="center" width="300" height="300">
-        <form method="post" action="" align="center">
-            <p><input type="text" name="userLogin" placeholder="Your login: " size="10" maxlength="30"/></p>
-            <p><input type="password" name="userPassword" placeholder="Your password: " size="10" maxlength="30" /></p>
+        <form id="aut" method="post" action="" align="center">
+            <p><input type="text" name="userLogin" placeholder="Your login: " size="10" maxlength="30" required/></p>
+            <p><input type="password" name="userPassword" placeholder="Your password: " size="10" maxlength="30" required/></p>
             <p><input id="myButton" type="image" class="small" src="images/entrance.png" name="submit" /></p>
         </form>
 
-    <script>
-        document.getElementById('myButton').addEventListener('click', function() {
-            myFunction(); 
-        });
-    </script>
+        <script>
+            document.getElementById('aut').addEventListener('submit', function(event) {
+                event.preventDefault();
+        
+                const login = this.userLogin.value; 
+                const password = this.userPassword.value;
+
+                if (!login || !password) {
+                    alert('Please fill in all fields!'); 
+                    return;
+                }
+                alert('Login: ' + login);
+                alert('Password: ' + password);
+            })
+        </script>
     </div>
     <footer>
         <p class="foo">Web 2025</p>
