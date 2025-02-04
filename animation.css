@@ -1,0 +1,145 @@
+.wrapper {
+  display: flex;
+
+}
+  .typing-demo {
+    display: inline-block; /* Позволяет полоске оставаться рядом с текстом */
+    font-size: 22px;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 4%;
+    margin-left: 20%; /* Отступ слева */
+    padding-right: 40px; /* Отступ справа для расстояния от текста */
+    border-right: 3px solid #08e8de; /* Цвет полоски */
+    overflow: hidden; /* Скрытие текста, который не должен быть виден */
+    white-space: nowrap; /* Запрет на перенос текста */
+    animation: typing 0.5s steps(30), blink 0.5s step-end infinite alternate; /* Анимация печатания */
+}
+
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #FFA500; /* Оранжевый цвет для квадратов */
+    animation: fall linear infinite, rotate linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Создаем несколько квадратов с разной скоростью и задержкой */
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff; /* Оранжевый цвет для квадратов */
+    animation: fall linear infinite, fade linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 80%; /* Останавливаем падение на 80% высоты страницы */
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+        filter: grayscale(0%); /* Начальный цвет */
+    }
+    100% {
+        opacity: 0;
+        filter: grayscale(100%); /* Полное исчезновение и обесцвечивание */
+    }
+}
+
+/* Создаем несколько квадратов с разной скоростью и задержкой */
+.leaf:nth-child(1) {
+    left: 5%; /* Левая сторона (0–25%) */
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+.leaf:nth-child(2) {
+    left: 20%; /* Левая сторона (0–25%) */
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.leaf:nth-child(3) {
+    left: 80%; /* Правая сторона (75–100%) */
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.leaf:nth-child(4) {
+    left: 95%; /* Правая сторона (75–100%) */
+    animation-duration: 15s;
+    animation-delay: 3s;
+}
+
+.leaf:nth-child(5) {
+    left: 10%; /* Левая сторона (0–25%) */
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.leaf:nth-child(6) {
+    left: 15%;
+    animation-duration: 7s;
+    animation-delay: 5s;
+}
+.leaf:nth-child(7) {
+    left: 85%;
+    animation-duration: 11s;
+    animation-delay: 6s;
+}
+.leaf:nth-child(8) {
+    left: 23%;
+    animation-duration: 14s;
+    animation-delay: 7s;
+}
+
+.leaf:nth-child(9) {
+    left: 77%;
+    animation-duration: 10s;
+    animation-delay: 8s;
+}
+.leaf:nth-child(10) {
+    left: 2%;
+    animation-duration: 13s;
+    animation-delay: 9s;
+}
+
+@keyframes typing {
+    from {
+        width: 0; 
+    }
+    to {
+        width: 11ch; 
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent; 
+    }
+}

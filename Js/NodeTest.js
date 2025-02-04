@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const bcrypt = require('bcryptjs');
+const getIPv4Addresses = require('./getIpAddresses');
+
+const port = 3000;
+const ipAddress = getIPv4Addresses();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +23,6 @@ app.post("/submit", function (request, response) {
     response.json({ login: userLogin, hashPassword: hashPassword });
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
-});
+app.listen(port, ipAddress, () => {
+    console.log(`Сервер запущен по адресу http://${ipAddress}:${port}`);
+  });

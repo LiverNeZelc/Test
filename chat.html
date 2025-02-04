@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animation.css">
+    <title>Zelc_Chat</title>
+    <style>
+        body {
+            display: flex;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d4d4d4;
+            color: #333;
+            line-height: 1.6;
+            flex-direction: column;
+            min-height: 100vh; 
+            z-index: 13;
+            position: relative;  
+        }
+        header {
+            display: flex;
+            background-color: #333;
+            color: #fff;
+            height: 6%;
+            padding: 1rem 0;
+            z-index: 2;  
+        }
+        .Cyan_ {
+            color: #08e8de;
+        }
+        .content {
+            background-color: #fff; 
+            width: 50%; 
+            margin-left: 25%;
+            margin-right: 25%; 
+            flex-grow: 1; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            align-items: center;
+            z-index: 1;  
+            height: 100%;
+        }
+        .overlay {
+            background-color: #08e8de; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%);
+            height: 100%; 
+            z-index: -1; 
+        }
+        .overlay-1 {
+            width: 62%;
+            opacity: 0.5; 
+            z-index: -1;
+        }
+        .overlay-2 {
+            width: 74%; 
+            opacity: 0.4; 
+            z-index: -1;
+        }
+        .overlay-3 {
+            width: 90%; 
+            opacity: 0.3; 
+            z-index: -1;
+        }
+        .overlay-4 {
+            width: 100%;
+            opacity: 0.2; 
+            z-index: -1;
+        }
+
+        .message-form {
+    position: fixed;
+    bottom: 2%; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px; 
+    border-radius: 37.5px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+    border: 2px solid #08e8de;
+    width: 90%; 
+    max-width: 550px; 
+    transition: box-shadow 0.3s ease;
+}
+
+.message-form:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.message-input {
+    flex: 1;
+    padding: 11.25px; 
+    border: 2px solid #08e8de;
+    border-radius: 22.5px; 
+    font-size: 12px; 
+    outline: none;
+    margin-right: 11.25px; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-input:focus {
+    border-color: #06c6b8;
+    box-shadow: 0 0 9px rgba(8, 232, 222, 0.6); 
+}
+
+.send-button {
+    padding: 11.25px 22.5px; 
+    background: linear-gradient(135deg, #08e8de, #06c6b8); 
+    border: none;
+    border-radius: 22.5px; 
+    color: #fff;
+    font-size: 12px; 
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.send-button:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 15px rgba(8, 232, 222, 0.4); 
+}
+
+.send-button:active {
+    transform: scale(0.95); 
+}
+        .HelloUser {
+            margin-left: auto; 
+             font-size: 18px; 
+            font-family: 'Rubik', sans-serif;
+            margin-top: 0.6%;
+             letter-spacing: 2px;
+             padding-right: 5%; 
+             white-space: nowrap; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="typing-demo">
+                <span class="Cyan_">Zelc_Chat</span>
+            </div>
+        </div>
+            <div class="HelloUser" color="#08e8de">Hello {User_login}!</div>
+        
+    </header>
+    <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    <div class="content">
+        <div class="message-form">
+            <input type="text" class="message-input" placeholder="Введите сообщение...">
+            <button class="send-button">Отправить</button>
+        </div>
+    </div>
+        <div class="overlay overlay-1"></div> 
+        <div class="overlay overlay-2"></div> 
+        <div class="overlay overlay-3"></div> 
+        <div class="overlay overlay-4"></div> 
+</body>
+</html>

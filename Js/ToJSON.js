@@ -1,5 +1,5 @@
 function setupFormSubmission() {
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
+    document.getElementById('aut').addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
@@ -15,3 +15,5 @@ function setupFormSubmission() {
         .catch(error => console.error('Error:', error));
     });
 }
+
+document.addEventListener('DOMContentLoaded', setupFormSubmission);
