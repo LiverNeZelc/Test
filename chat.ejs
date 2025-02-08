@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/general/animation.css">
+    <title>Zelc_Chat</title>
+    <style>
+        body {
+            display: flex;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d4d4d4;
+            color: #333;
+            line-height: 1.6;
+            flex-direction: column;
+            min-height: 100vh; 
+            z-index: 13;
+            position: relative;  
+        }
+        header {
+            position: fixed;
+            top: 0; /* Устанавливаем его в верхнюю часть экрана */
+             left: 0; /* Устанавливаем его в левую часть */
+             width: 100%; /* Заголовок занимает всю ширину */
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            height: 6%;
+            padding: 1rem 0;
+            z-index: 2;  
+        }
+        .Cyan_ {
+            color: #08e8de;
+        }
+        .content {
+            position: relative;
+            background-color: #fff; 
+            width: 50%; 
+            margin-left: 25%;
+            margin-right: 25%; 
+            flex-grow: 1; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            align-items: center;
+            z-index: 1;  
+            height: 100%;
+            padding-bottom: 20px; 
+        }
+        .overlay {
+            background-color: #08e8de; 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%);
+            height: 100%; 
+            z-index: -1; 
+        }
+        .overlay-1 {
+            width: 62%;
+            opacity: 0.5; 
+            z-index: -1;
+        }
+        .overlay-2 {
+            width: 74%; 
+            opacity: 0.4; 
+            z-index: -1;
+        }
+        .overlay-3 {
+            width: 90%; 
+            opacity: 0.3; 
+            z-index: -1;
+        }
+        .overlay-4 {
+            width: 100%;
+            opacity: 0.2; 
+            z-index: -1;
+        }
+
+        .message-form {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 37.5px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #08e8de;
+    width: 90%;
+    max-width: 550px;
+    transition: box-shadow 0.3s ease;
+    z-index: 1000; 
+}
+
+
+        .message-form:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 11.25px; 
+            border: 2px solid #08e8de;
+            border-radius: 22.5px; 
+            font-size: 12px; 
+            outline: none;
+            margin-right: 11.25px; 
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .message-input:focus {
+            border-color: #06c6b8;
+            box-shadow: 0 0 9px rgba(8, 232, 222, 0.6); 
+        }
+
+        .send-button {
+            padding: 11.25px 22.5px; 
+            background: linear-gradient(135deg, #08e8de, #06c6b8); 
+            border: none;
+            border-radius: 22.5px; 
+            color: #fff;
+            font-size: 12px; 
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .send-button:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 6px 15px rgba(8, 232, 222, 0.4); 
+        }
+
+        .send-button:active {
+            transform: scale(0.95); 
+        }
+
+        .message {
+    font-size: 16px;
+    letter-spacing: 0.5px; 
+    margin: 5px 0; 
+    text-align: left; 
+    padding: 10px; 
+    border-radius: 10px; 
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s; 
+}
+
+.message:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+        .HelloUser {
+            margin-left: auto; 
+             font-size: 18px; 
+            font-family: 'Rubik', sans-serif;
+            margin-top: 0.6%;
+             letter-spacing: 2px;
+             padding-right: 5%; 
+             white-space: nowrap; 
+        }
+
+        .messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    margin-bottom: 80px;
+    z-index: 15;
+}
+
+        @media (max-width: 600px) {
+            .content {
+                flex-direction: column;
+                width: 80%; 
+                margin-left: 10%; 
+                margin-right: 10%; 
+            }
+
+            .message-form {
+                width: 72%; 
+            }
+            .send-button {
+                width: 30%; 
+                padding: 11.25px 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="typing-demo">
+                <span class="Cyan_">Zelc_Chat</span>
+            </div>
+        </div>
+            <div class="HelloUser" color="#08e8de">Hello <%= login %>!</div>
+        
+    </header>
+    <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="content">
+            <div class="messages-container"></div> 
+            <div class="message-form">
+                <input type="text" class="message-input" placeholder="Введите сообщение...">
+                <button class="send-button">Отправить</button>
+            </div>
+        </div>
+        <script>
+            const login = "<%= login %>"; // Имя текущего пользователя
+            const ipAddress = "<%= ipAddress %>";
+            const wsUrl = `wss://${ipAddress}:3000/zelc_chat`;
+            const ws = new WebSocket(wsUrl);
+            const oldColor = "#000000"; // Черный цвет для старых сообщений
+        
+            ws.onopen = () => {
+                console.log('Соединение установлено');
+            };
+        
+            ws.onmessage = (event) => {
+                const { message, sender, color, isHistory } = JSON.parse(event.data);
+        
+                // Если это не история, добавляем сообщение с цветом отправителя
+                if (!isHistory) {
+                    addMessageToContainer(message, sender, color, false); // Новое сообщение
+                }
+            };
+        
+            // Функция для добавления сообщения в контейнер
+            function addMessageToContainer(message, sender, color, isOldMessage = false) {
+                const messagesContainer = document.querySelector('.messages-container');
+                const messageElement = document.createElement('div');
+        
+                messageElement.classList.add('message'); // Добавляем класс сообщения
+        
+                if (isOldMessage) {
+                    // Стили для старых сообщений
+                    messageElement.style.backgroundColor = '#f0f0f0'; // Серый фон
+                    messageElement.style.color = oldColor; // Черный цвет текста
+                } else {
+                    // Стили для новых сообщений
+                    messageElement.style.color = color; // Цвет отправителя
+                }
+        
+                messageElement.textContent = `${message}`; // Добавляем отправителя
+                messagesContainer.appendChild(messageElement);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Прокрутка вниз
+            }
+        
+            // Функция для отправки сообщения
+            function sendMessage() {
+                const input = document.querySelector('.message-input');
+                const message = input.value;
+        
+                if (message) {
+                    ws.send(message); // Отправка сообщения через WebSocket
+                    input.value = ''; // Очистка поля ввода
+                }
+            }
+        
+            // Обработчик для кнопки "Отправить"
+            document.querySelector('.send-button').addEventListener('click', sendMessage);
+        
+            // Обработчик для клавиши Enter
+            document.querySelector('.message-input').addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Предотвращаем стандартное поведение
+                    sendMessage(); // Отправляем сообщение
+                }
+            });
+        
+            // Загрузка истории сообщений при загрузке страницы
+            window.onload = () => {
+                fetch('/messageHistory')
+                    .then(response => response.json())
+                    .then(messages => {
+                        messages.forEach(message => {
+                            const { message: messageText, sender, color } = JSON.parse(message);
+                            addMessageToContainer(messageText, sender, oldColor, true); // Указываем, что это старое сообщение
+                        });
+                        window.scrollTo(0, document.body.scrollHeight);
+                    });
+            };
+        </script>
+        <div class="overlay overlay-1"></div> 
+        <div class="overlay overlay-2"></div> 
+        <div class="overlay overlay-3"></div> 
+        <div class="overlay overlay-4"></div> 
+</body>
+</html>

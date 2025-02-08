@@ -143,3 +143,42 @@
         border-color: transparent; 
     }
 }
+
+@media (max-width: 600px) {
+    .leaf:nth-child(1),
+    .leaf:nth-child(2) {
+        left: 2%; /* Корректируем диапазон для первых двух листьев */
+    }
+
+    .leaf:nth-child(3) {
+        left: 5%;
+    }
+
+    .leaf:nth-child(4) {
+        left: 7%;
+    }
+
+    .leaf:nth-child(5) {
+        left: 92%; /* Правый диапазон */
+    }
+
+    .leaf:nth-child(6) {
+        left: 95%;
+    }
+
+    .leaf:nth-child(7) {
+        left: 98%;
+    }
+
+    .leaf:nth-child(8) {
+        left: 95%;
+    }
+
+    .leaf:nth-child(9) {
+        left: 92%;
+    }
+
+    .leaf:nth-child(10) {
+        left: 2%;
+    }
+}
